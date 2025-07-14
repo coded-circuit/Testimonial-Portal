@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block extra_css%}
+<link rel="stylesheet" href="{% static '/css/student_test.css' %}">
+{% endblock %}
+
+{% block content %}
+ 
+<div class="student-test">
+  <div class="heading">
+    <h1>My Testimonials</h1>
+  </div>
+  <div class="data">
+    {% if testimonials %}
+    
+      {% for testimonial in testimonials %}
+        <div class="card">
+          <div class="inner-card">
+            <div class="quotes" id="one">
+            <img src="{% static 'images/quotes.png' %}" alt="">
+            </div>
+            <div class="details">
+              <h1>For  {{ testimonial.professor.name }}:</h1>
+              <div class="test">{{ testimonial.content }}</div>
+            </div>
+            <div class="edit"><a href="{% url 'prof:test-update' id=testimonial.professor.id %}">Edit</a></div>
+          
+            <div class="quotes" id="two">
+              <img src="{% static 'images/quotes.png' %}" alt="">
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    
+    {% else %}
+      <p>No testimonials found for you yet.</p>
+    {% endif %} 
+  </div>
+</div>
+
+
+
+
+  
+{% endblock %}
+{% block js %}
+
+  <script  src="{% static '/js/student_test.js' %}"></script>
+
+{% endblock %}

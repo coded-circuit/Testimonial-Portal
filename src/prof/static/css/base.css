@@ -1,0 +1,33 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: gilroy;
+}
+html,body{
+    height: 100%;
+    width: 100%;
+}
+.cursor-dot,
+.cursor-trail {
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  border-radius: 50%;
+  z-index: 9999;
+}
+
+.cursor-dot {
+  width: 20px;
+  height: 20px;
+  background-color: #00d1ff;
+  transform: translate(-50%, -50%);
+}
+
+.cursor-trail {
+  width: 30px;
+  height: 30px;
+  background-color: rgba(0, 209, 255, 0.2);
+  transform: translate(-50%, -50%);
+}

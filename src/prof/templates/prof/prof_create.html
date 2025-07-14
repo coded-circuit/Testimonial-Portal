@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/prof_create.css' %}">
+{% endblock %}
+
+{% block content %}
+  <div class="create">
+    <div class="heading">
+      {% if testimonial %}
+        <h2>Update Testimonial</h2>
+      {% else %}
+        <h2>Write a testimonial for {{ professor.name }}</h2>
+      {% endif %}
+    </div>
+    <div class="form">
+      <form method="post">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <button type="submit">Submit</button>
+  </form>
+    </div>
+  </div>
+  {% endblock %}
+{% block js %}
+
+  <script  src="{% static '/js/prof_create.js' %}"></script>
+
+{% endblock %}

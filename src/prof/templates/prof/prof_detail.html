@@ -1,0 +1,77 @@
+
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/prof_detail.css' %}">
+{% endblock %}
+
+
+
+{% block content %}
+  <div class="background">
+    <div class="card1">
+      <div class="card2">
+        
+      </div>
+    </div>
+  </div>
+  <div class="content">
+    <div class="profile">
+      <h1>Testimonial Section</h1>
+      <h1>{{ professor.name }}</h1>
+      <h1>{{ professor.department }} | {{ professor.email }}</h1>
+      <div class="btn">
+        <div><a href="{% url 'prof:prof-list' %}">Back to Professor List</a></div>
+        <div><a href="{% url 'prof:test-create' id=professor.id  %}">Write Testimonial</a></div>
+      </div>
+    </div>
+    <div class="main">
+      <h2>Testimonials</h2>
+    {% if testimonials %}
+      <div class="main2">
+        {% for testimonial in testimonials %}
+        <div class="card" id = 'id{{testimonial.id}}'>
+          <h4>{{ testimonial.student_name }}</h4>
+          <p>{{ testimonial.content }}</p>
+          <div class="star">
+            <span style="color: gold; font-size: 24px;">★</span>
+            <span style="color: gold; font-size: 24px;">★</span>
+            <span style="color: gold; font-size: 24px;">★</span>
+            <span style="color: gold; font-size: 24px;">★</span>
+            <span style="color: gold; font-size: 24px;">★</span>
+          </div>
+        </div>
+        {% endfor %}
+      
+      </div>
+   
+  {% else %}
+    <p>No testimonials yet.</p>
+  
+  
+    </ul>
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+  
+  
+  
+{% endif %}
+
+
+  
+{% endblock %}
+{% block js %}
+
+  <script  src="{% static '/js/prof_detail.js' %}"></script>
+
+{% endblock %}

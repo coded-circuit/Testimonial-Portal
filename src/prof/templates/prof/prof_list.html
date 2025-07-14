@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/prof_list.css' %}">
+ <!-- <link rel="stylesheet" href="/src/prof/static/css/prof_list.css"> -->
+{% endblock %}
+
+
+{% block content %}
+
+<div class="list">
+     
+<div class="main">
+     {% for instance in object_list %}
+     <div class="card"><a href="{{ instance.get_absolute_url }}">
+          <div class="prof-img">
+               <img src="{% static 'images/prof.png' %}" alt="">
+          </div>
+          <div class="prof-details">
+               <div class="prof-name">
+                    <h4>{{ instance.name }}</h4>
+               </div>
+               <div class="prof-dep">
+                    <p> {{instance.department}} </p>
+               </div>
+               <div class="prof-mail">
+                    <p> {{instance.email}} </p>
+
+               </div>
+          </div>
+          </a>
+
+     </div>
+     {% endfor %}
+</div>
+
+</div>
+
+{% endblock %}
+{% block js %}
+  <script  src="{% static '/js/prof_list.js' %}"></script>
+
+{% endblock %}
