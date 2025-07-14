@@ -22,7 +22,7 @@ A dynamic Django web app where students can write, update, and view testimonials
 
 ## 🔗 Live Demo
 
-[🌐 View Project Live](https://your-username.github.io/testimonial-portal/)  
+[🌐 View Project Live](https://testimonial-portal-3.onrender.com/)  
 
 
 ## ⚙️ Tech Stack
